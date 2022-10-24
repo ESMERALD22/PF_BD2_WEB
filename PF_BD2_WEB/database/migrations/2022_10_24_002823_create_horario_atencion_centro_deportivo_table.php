@@ -13,8 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('rol', function (Blueprint $table) {
-            $table->id();
+        Schema::create('horario_atencion_centro_deportivo', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('idCentroDeportivo');
+            $table->string('dia',50);
+            $table->time('horaApertura');
+            $table->time('horaCierre');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rol');
+        Schema::dropIfExists('horario_atencion_centro_deportivo');
     }
 };
