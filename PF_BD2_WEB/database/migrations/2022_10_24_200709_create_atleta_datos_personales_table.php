@@ -13,19 +13,27 @@ return new class extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('entrenadorDatosPersonales', function (Blueprint $table) {
-            $table->increments('idEnetradaorDatosPersonales');
+        Schema::create('atleta_datos_personales', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('cui');
+            $table->string('pasaporte',50);
+            $table->string('NIT',25);
             $table->string('nombre1',100);
             $table->string('nombre2',100);
             $table->string('apellido1',50);
             $table->string('apellido2',50);
             $table->string('apellidoDeCasada',50);
             $table->date('fechaNaciemiento',50);
-            $table->integer('telefonodecasa');
+            $table->decimal('peso');
+            $table->decimal('altura');
             $table->integer('celular');
+            $table->integer('telefonodecasa');
             $table->string('genero',50);
+            $table->string('direccion',100);
+            $table->string('correo',100);
+            $table->string('estadoCivil',100);
+            $table->string('etnia',100);
+            $table->string('escolaridad',100);
             $table->timestamps();
         });
     }
@@ -37,7 +45,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
-        Schema::dropIfExists('entrenadorDatosPersonales');
+        Schema::dropIfExists('atleta_datos_personales');
     }
 };

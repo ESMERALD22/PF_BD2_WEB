@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('proceso_sistematico', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('idAtleta');
+            $table->unsignedInteger('idInscripcion');
             $table->unsignedInteger('idTipoAtleta');
             $table->unsignedInteger('idEtapaDeportiva');
             $table->integer('experienciaDeportivaYears');

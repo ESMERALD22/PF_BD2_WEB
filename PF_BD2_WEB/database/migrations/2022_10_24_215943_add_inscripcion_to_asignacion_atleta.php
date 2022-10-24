@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('proceso_sistematico', function (Blueprint $table) {
-            //
-            $table->foreign('idTipoAtleta')->references('id')->on('tipo_atleta')->onDelete('cascade');
+        Schema::table('asignacion_atleta', function (Blueprint $table) {
+            $table->foreign('idInscripcion')->references('id')->on('inscripcion')->onDelete('cascade');
+            
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('proceso_sistematico', function (Blueprint $table) {
+        Schema::table('asignacion_atleta', function (Blueprint $table) {
             //
         });
     }

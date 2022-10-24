@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('proceso_sistematico', function (Blueprint $table) {
-            //
-            $table->foreign('idEtapaDeportiva')->references('id')->on('etapa_deportiva')->onDelete('cascade');
-
+        Schema::create('tareas', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('idReporte');
+            $table->text('tarea');
+            $table->date('fechaInicial');
+            $table->date('fechaFinal');
+            $table->time('hora');
+            $table->timestamps();
         });
     }
 
@@ -27,8 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('proceso_sistematico', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('tareas');
     }
 };

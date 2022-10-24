@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('practicante', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('idAtleta');
-            $table->timestamps();
+        Schema::table('entrenador_centro_deportivo', function (Blueprint $table) {
+            $table->foreign('idContrato')->references('id')->on('contrato')->onDelete('cascade');
+            
         });
     }
 
@@ -27,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('practicante');
+        Schema::table('entrenador_centro_deportivo', function (Blueprint $table) {
+            //
+        });
     }
 };

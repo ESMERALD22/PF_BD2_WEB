@@ -13,9 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('encargado', function (Blueprint $table) {
-            $table->increments('idencargado');
+        Schema::create('entrenador_datos_personales', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('cui');
             $table->string('nombre1',100);
             $table->string('nombre2',100);
@@ -26,6 +25,7 @@ return new class extends Migration
             $table->integer('telefonodecasa');
             $table->integer('celular');
             $table->string('genero',50);
+            $table->string('direccion',100);
             $table->timestamps();
         });
     }
@@ -37,8 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
-        Schema::dropIfExists('encargado');
-
+        Schema::dropIfExists('entrenador_datos_personales');
     }
 };

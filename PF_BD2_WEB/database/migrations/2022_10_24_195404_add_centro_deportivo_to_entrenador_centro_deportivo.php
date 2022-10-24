@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('control_asistencia', function (Blueprint $table) {
-            //
-            $table->foreign('idTipoAsistencia')->references('id')->on('tipo_asistencia')->onDelete('cascade');
-
+        Schema::table('entrenador_centro_deportivo', function (Blueprint $table) {
+            $table->foreign('idCentroDeportivo')->references('id')->on('centro_deportivo')->onDelete('cascade');
+            
         });
     }
 
@@ -27,7 +26,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('control_asistencia', function (Blueprint $table) {
+        Schema::table('entrenador_centro_deportivo', function (Blueprint $table) {
             //
         });
     }

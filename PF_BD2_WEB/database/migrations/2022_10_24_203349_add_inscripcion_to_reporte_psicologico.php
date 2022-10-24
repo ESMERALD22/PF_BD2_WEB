@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('control_asistencia', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('idProcesoSistematico');
-            $table->date('fecha');
-            $table->unsignedInteger('idTipoAsistencia');
-            $table->timestamps();
+        Schema::table('reporte_psicologico', function (Blueprint $table) {
+            $table->foreign('idInscripcion')->references('id')->on('inscripcion')->onDelete('cascade');
+            
         });
     }
 
@@ -29,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('control_asistencia');
+        Schema::table('reporte_psicologico', function (Blueprint $table) {
+            //
+        });
     }
 };
