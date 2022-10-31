@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('atleta_datos_personales', function (Blueprint $table) {
+            $table->unsignedInteger('idMunicipioNacimiento');
             $table->foreign('idMunicipioNacimiento')->references('id')->on('municipio');
         });
     }
